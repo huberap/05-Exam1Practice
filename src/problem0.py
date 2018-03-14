@@ -283,13 +283,13 @@ def problem0c(circle, n, window):
     for k in range(n):
         center = rg.Point(x,y)
         circle1 = rg.Circle(center, radius)
-        circle1.
+        circle1.attach_to(window)
 
         x = x  + (2 * radius)
     window.render()
 
 
-    window.render()
+    window.render(0.5)
 
     """
     See   problem0c_picture.pdf   in this project for pictures
@@ -314,7 +314,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
