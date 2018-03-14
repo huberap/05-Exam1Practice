@@ -282,8 +282,8 @@ def problem0c(circle, n, window):
     x = circle.center.x +(radius*2)
     for k in range(n):
         center = rg.Point(x,y)
-        circle2 = rg.Circle(center, radius)
-        circle2.
+        circle1 = rg.Circle(center, radius)
+        circle1.
 
         x = x  + (2 * radius)
     window.render()
