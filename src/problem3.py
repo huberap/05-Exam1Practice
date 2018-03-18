@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 3.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Alex Huber
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -37,7 +37,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # done: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # ------------------------------------------------------------------
@@ -95,6 +95,14 @@ def run_test_problem3a():
     print('Test 4 expected:', expected)
     print('       actual:  ', answer)
 
+    #test 5
+    point = rg.Point(10,20)
+    expected = 3
+    answer = problem3a(window3,point,2)
+    print()
+    print('test 4 expected:', expected)
+    print('test 4 actual:', answer)
+
     window3.close_on_mouse_click()
 
     # ------------------------------------------------------------------
@@ -132,10 +140,36 @@ def problem3a(window, point, n):
               (So once a rg.Line has thickness 13,
               it and all the rg.Lines to its right have thickness 13.)
     Type hints:
-        :type window: rg.RoseWindow
+        :t
+        ype window: rg.RoseWindow
         :type point:  rg.Point
         :type n:      int
     """
+    point2 = rg.Point(point.x,point.y+50)
+    #point2.x = point.x
+    #point2.y = point.y + 50
+    line = rg.Line(point,point2)
+    line.thickness = 1
+    line.attach_to(window)
+    sum = 1
+    thick = 1
+
+    for k in range(n-1):
+        point.x = point.x + 20
+        point.y = point.y + 10
+        point2.x = point.x
+        point2.y = point.y + 50
+        line = rg.Point(point, point2)
+        thick = thick + 2
+        line.thickness = thick
+        if line.thickness > 13:
+            line.thickness = 13
+        sum = sum + line.thickness
+        line.attach_to(window)
+    
+
+    return sum
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
