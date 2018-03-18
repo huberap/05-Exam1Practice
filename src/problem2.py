@@ -76,6 +76,20 @@ def problem2a(circle, rectangle, window):
     circle.attach_to(window)
     rectangle.attach_to(window)
     window.render()
+    window.continue_on_mouse_click()
+    if rectangle.corner_2.y > rectangle.corner_1.y:
+        p1 = rectangle.corner_2
+        p2 = rectangle.corner_1
+    else:
+        p1 = rectangle.corner_1
+        p2 = rectangle.corner_2
+
+    p1 = rectangle.corner_1
+    p2 = rectangle.corner_2
+    rg.Line(p1,p2).attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    circle.fill_color = rectangle.outline_color
 
 
     """
@@ -107,7 +121,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -186,8 +200,15 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
-
-
+    rect.attach_to(win)
+    rg.Rectangle()
+    #
+    #
+    #
+    # how would i find the center of the rectangle? and use a good method to keep it there
+    #
+    #
+    #
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
